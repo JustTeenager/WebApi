@@ -39,15 +39,15 @@ class MainActivity : AppCompatActivity() {
     private fun setupRecView(obs: Observable<TablePOJO>){
         val observer:DisposableObserver<TablePOJO> =object:DisposableObserver<TablePOJO>(){
             override fun onNext(value: TablePOJO?) {
-                TODO("Not yet implemented")
+
             }
 
             override fun onError(e: Throwable?) {
-                TODO("Not yet implemented")
+
             }
 
             override fun onComplete() {
-                TODO("Not yet implemented")
+                
             }
 
         }

@@ -1,23 +1,38 @@
 package com.example.webapi
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.webapi.Retrofit.TablePOJO
+import com.example.webapi.databinding.ItemTableBinding
 
 class RecViewTableAdapter : RecyclerView.Adapter<RecViewTableAdapter.TableHolder>() {
-    class TableHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    }
+    private var tables = mutableListOf<TablePOJO>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableHolder {
-        TODO("Not yet implemented")
+        val binding = DataBindingUtil.inflate<ItemTableBinding>(LayoutInflater.from(parent.context),R.layout.item_table,parent, false)
+        return TableHolder(binding)
     }
 
     override fun onBindViewHolder(holder: TableHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.onBind(tables[position])
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return tables.size
+    }
+
+    fun addTablePOJO(tablePOJO: TablePOJO){
+        tables.add(tablePOJO)
+        notifyDataSetChanged()
+    }
+
+    class TableHolder(private val binding: ItemTableBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun onBind(tablePOJO: TablePOJO){
+
+        }
     }
 }
