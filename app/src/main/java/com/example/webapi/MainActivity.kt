@@ -2,6 +2,7 @@ package com.example.webapi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.webapi.Retrofit.RetrofitHelper
 import com.example.webapi.Retrofit.TablePOJO
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     private fun initButtons(){
         disposables.add(RxView.clicks(binding.downloadTable).observeOn(Schedulers.io()).subscribe(){
           val obs: Observable<TablePOJO>? = RetrofitHelper.sendTable(WebAPI::class.java).getTable()?.flatMapIterable { it }
+            if (obs != null) {
+                setupRecView(obs)
+            }
         })
         disposables.add(RxView.clicks(binding.sendTable).observeOn(Schedulers.io()).subscribe(){})
     }
@@ -39,11 +43,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupRecView(obs: Observable<TablePOJO>){
         val observer:DisposableObserver<TablePOJO> =object:DisposableObserver<TablePOJO>(){
             override fun onNext(value: TablePOJO?) {
-
+                if (value != null) {
+                    Log.d("tut",value.Data)
+                }
             }
 
             override fun onError(e: Throwable?) {
-
+                e?.printStackTrace()
             }
 
             override fun onComplete() {

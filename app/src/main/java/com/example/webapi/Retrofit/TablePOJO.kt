@@ -1,3 +1,3 @@
 package com.example.webapi.Retrofit
 
-class TablePOJO {}
+data class TablePOJO(val Data:String) {}

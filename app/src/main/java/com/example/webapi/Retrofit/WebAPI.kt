@@ -5,7 +5,7 @@ import retrofit2.http.*
 
 
 interface WebAPI {
-        @GET("папка")
+        @GET("dev_vasilevskiy_01/ws/ws1.1cws?wsdl")
         fun getTable(): Observable<List<TablePOJO>?>?
 
         @FormUrlEncoded
