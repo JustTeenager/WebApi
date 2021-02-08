@@ -1,7 +1,6 @@
 package com.example.webapi
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +8,7 @@ import com.example.webapi.Retrofit.TablePOJO
 import com.example.webapi.databinding.ItemTableBinding
 
 class RecViewTableAdapter : RecyclerView.Adapter<RecViewTableAdapter.TableHolder>() {
-    private var tables = mutableListOf<TablePOJO>()
+    var tables = mutableListOf<TablePOJO>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableHolder {
         val binding = DataBindingUtil.inflate<ItemTableBinding>(LayoutInflater.from(parent.context),R.layout.item_table,parent, false)
@@ -26,13 +25,15 @@ class RecViewTableAdapter : RecyclerView.Adapter<RecViewTableAdapter.TableHolder
 
     fun addTablePOJO(tablePOJO: TablePOJO){
         tables.add(tablePOJO)
-        notifyDataSetChanged()
+        //TODO() нотифай?
+        notifyItemChanged(tables.size-1)
     }
 
     class TableHolder(private val binding: ItemTableBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(tablePOJO: TablePOJO){
-
+            val model=TableItemViewModel(tablePOJO.number,tablePOJO.date,tablePOJO.comment)
+            binding.value=model
         }
     }
 }

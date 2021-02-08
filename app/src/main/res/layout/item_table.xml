@@ -4,15 +4,44 @@
     <data>
         <variable
             name="value"
-            type="String" />
+            type="com.example.webapi.TableItemViewModel" />
     </data>
 
-    <EditText
-        android:id="@+id/edit_text"
-        android:orientation="vertical"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{value}"
-        android:importantForAutofill="no">
-    </EditText>
+        android:orientation="horizontal">
+
+        <TextView
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:id="@+id/number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{value.num}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/date"
+            android:padding="9dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@{value.date}"
+            android:gravity="center_horizontal" />
+
+        <EditText
+        android:id="@+id/edit_text"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:padding="9dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:layout_weight="4"
+        android:text="@{value.comment}"/>
+    </LinearLayout>
 </layout>
