@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         obs.subscribe(observer)
 
         ////////////////////////////////
-        /*val obs:Observable<String> = RetrofitHelper.useTable(WebAPI::class.java)
+       /* val obs:Observable<String> = RetrofitHelper.useTable(WebAPI::class.java)
                 .getTable()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

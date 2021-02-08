@@ -10,6 +10,9 @@ interface WebAPI {
         @GET("1GetTable.php")
         fun getTable(): Observable<List<TablePOJO>>
 
+       /* @GET("1GetTable.php")
+        fun getTable(): Observable<String>*/
+
         @POST("папка")
         fun sendTable(@Body list:List<TablePOJO>):Observable<String>
 }
