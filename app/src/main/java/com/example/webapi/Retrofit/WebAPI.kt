@@ -7,12 +7,12 @@ import retrofit2.http.*
 interface WebAPI {
         //TODO() ссылОчки и что кидать в пост-запрос
 
-        @GET("1GetTable.php")
+        @GET("GetTable")
         fun getTable(): Observable<List<TablePOJO>>
 
        /* @GET("1GetTable.php")
         fun getTable(): Observable<String>*/
 
-        @POST("папка")
+        @POST("SendTable")
         fun sendTable(@Body list:List<TablePOJO>):Observable<String>
 }

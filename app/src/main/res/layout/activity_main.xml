@@ -20,20 +20,20 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
         <Button
             android:id="@+id/download_table"
             android:layout_width="wrap_content"
-            android:layout_marginRight="@dimen/buttons_margin"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/buttons_margin" />
+            android:text="@string/download"
+       />
 
         <Button
             android:id="@+id/send_table"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="@dimen/buttons_margin"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/buttons_margin" />
+            android:text="@string/send_data"
+            />
         </LinearLayout>
     </LinearLayout>
 </layout>

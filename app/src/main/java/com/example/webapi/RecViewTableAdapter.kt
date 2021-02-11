@@ -1,5 +1,6 @@
 package com.example.webapi
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -26,7 +27,7 @@ class RecViewTableAdapter : RecyclerView.Adapter<RecViewTableAdapter.TableHolder
     fun addTablePOJO(tablePOJO: TablePOJO){
         tables.add(tablePOJO)
         //TODO() нотифай?
-        notifyItemChanged(tables.size-1)
+        notifyDataSetChanged()
     }
 
     class TableHolder(private val binding: ItemTableBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -34,6 +35,7 @@ class RecViewTableAdapter : RecyclerView.Adapter<RecViewTableAdapter.TableHolder
         fun onBind(tablePOJO: TablePOJO){
             val model=TableItemViewModel(tablePOJO.number,tablePOJO.date,tablePOJO.comment)
             binding.value=model
+            Log.d("tut_bind","on Bind $tablePOJO")
         }
     }
 }
