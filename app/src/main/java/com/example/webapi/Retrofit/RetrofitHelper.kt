@@ -13,7 +13,7 @@ object RetrofitHelper {
     private const val url="http://109.188.103.206:11221/UT11_Demo/hs/MobileBC/"
     private val retrofit:Retrofit=Retrofit.Builder()
         .baseUrl(url)
-        //.addConverterFactory(ScalarsConverterFactory.create())
+        .addConverterFactory(ScalarsConverterFactory.create())
         //.addConverterFactory(SimpleXmlConverterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

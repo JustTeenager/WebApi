@@ -8,6 +8,7 @@ interface WebAPI {
         //TODO() ссылОчки и что кидать в пост-запрос
 
         @GET("GetTable")
+        //fun getTable(): Observable<String>
         fun getTable(): Observable<List<TablePOJO>>
 
        /* @GET("1GetTable.php")
