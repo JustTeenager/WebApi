@@ -1,7 +1,6 @@
 package com.example.webapi.Retrofit
 
 import com.google.gson.annotations.SerializedName
-import org.simpleframework.xml.*
 
 data class TablePOJO(
     @SerializedName("Nomer")
